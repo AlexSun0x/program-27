@@ -29,6 +29,9 @@ namespace program_27
            
             return true;      
         }
+
+
+
         public static void Formula(int absolute) 
         {
             int sum=0;
@@ -37,23 +40,27 @@ namespace program_27
             int bx = 0;
             for (int a = -absolute; a < absolute; a++)
             {
-                for (int b = 1; b < absolute && Primes(b); b++)
+                
+                for (int b = 1; b < absolute ; b++)
                 {
-                    for (int i = 0; i < absolute; i++)
+                    if (Primes(b))
                     {
-                         sum = i * i + a * i + b;
-                         Console.WriteLine(sum);
-                       if(Primes(sum)==false)
-                       {
-                           
-                           if (i > ix) 
-                           { 
-                            ax = a;
-                            bx = b;
-                            ix = i;
-                           }
-                           break;
-                       }
+                        for (int i = 0; i < absolute; i++)
+                        {
+                            sum = i * i + a * i + b;
+                            Console.WriteLine(i);
+                            if (Primes(sum) == false)
+                            {
+
+                                if (i > ix)
+                                {
+                                    ax = a;
+                                    bx = b;
+                                    ix = i;
+                                }
+                                break;
+                            }
+                        }
                     }
                 }
             }
